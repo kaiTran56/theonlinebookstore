@@ -35,6 +35,11 @@ public class LoginController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		goSignUp(request, response);
+	}
+
+	protected void goSignUp(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.getRequestDispatcher("/view/user/signup.jsp").forward(request, response);
 	}
 
@@ -44,7 +49,11 @@ public class LoginController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		doCheckLogin(request, response);
+	}
+
+	protected void doCheckLogin(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String username = request.getParameter("name");
 		String password = request.getParameter("pass");
 		User user = userDao.login(username, password);
@@ -57,7 +66,6 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("username", user.getEmail());
 			response.sendRedirect(request.getContextPath() + "/view/user/homepage");
 		}
-
 	}
 
 }
