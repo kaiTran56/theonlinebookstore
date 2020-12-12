@@ -37,19 +37,29 @@ public class EditAdminController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		goEditAdmin(request, response);
+	}
+
+	protected void goEditAdmin(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String username = request.getParameter("admin-username");
 		Admin adminTemp = adminDao.get(username);
 		request.setAttribute("admin", adminTemp);
 		request.getRequestDispatcher("/view/admin/editadmin.jsp").forward(request, response);
 	}
 
+	protected void doEditAdmin(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		Admin admin = new Admin(username, password);
+		adminDao.Edit(admin);
+		response.sendRedirect(request.getContextPath() + "/admin/list-admin");
+	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String username =  request.getParameter("username");
-		String password = request.getParameter("password");
-		Admin admin =new Admin (username, password);
-		adminDao.Edit(admin);
-		response.sendRedirect(request.getContextPath()+"/admin/list-admin");
+		doEditAdmin(request, response);
 	}
 
 }

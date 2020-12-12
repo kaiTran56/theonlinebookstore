@@ -18,6 +18,7 @@ import com.team.model.Boardnew;
 public class EditBoardnewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private int inTemp;
+
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -32,17 +33,18 @@ public class EditBoardnewController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		goEditBoardnew(request, response);
+	}
+
+	protected void goEditBoardnew(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		inTemp = Integer.parseInt(request.getParameter("boardnew-id"));
 		Boardnew boardnewTemp = new BoardnewDaoImpl().get(inTemp);
 		request.setAttribute("boardnew", boardnewTemp);
 		request.getRequestDispatcher("/view/admin/editboardnew.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doEditBoardnew(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String title = request.getParameter("new-title");
 		String content = request.getParameter("new-content");
@@ -51,7 +53,16 @@ public class EditBoardnewController extends HttpServlet {
 		LocalDateTime created = LocalDateTime.now();
 		Boardnew boardnew = new Boardnew(inTemp, title, content, image_link, author, created);
 		new BoardnewDaoImpl().edit(boardnew);
-		response.sendRedirect(request.getContextPath()+ "/admin/list-boardnew");
+		response.sendRedirect(request.getContextPath() + "/admin/list-boardnew");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doEditBoardnew(request, response);
 	}
 
 }
