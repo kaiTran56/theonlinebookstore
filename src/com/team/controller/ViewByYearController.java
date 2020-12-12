@@ -33,11 +33,16 @@ public class ViewByYearController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doViewByYear(request, response);
+	}
+
+	protected void doViewByYear(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		int year = Integer.parseInt(request.getParameter("viewyear"));
 
 		List<Product> listYear = new ProductDaoImpl().getAll().stream().filter(p -> p.getCreated().getYear() == year)
 				.collect(Collectors.toList());
-		;
+
 		request.setAttribute("listproduct", listYear);
 		request.getRequestDispatcher("/view/user/template/shop.jsp").forward(request, response);
 	}
