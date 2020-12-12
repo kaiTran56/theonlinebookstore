@@ -22,13 +22,14 @@ public class RemoveProductController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doRemoveProduct(request, response);
+	}
+
+	protected void doRemoveProduct(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		new ProductDaoImpl().delete(id);
 		response.sendRedirect(request.getContextPath() + "/admin/list-product");
-	}
-
-	protected void doEditAdmin(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
 	}
 
 }
