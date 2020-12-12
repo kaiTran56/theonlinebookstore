@@ -34,6 +34,11 @@ public class ViewByTopicController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doViewByTopic(request, response);
+	}
+
+	protected void doViewByTopic(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String topic = request.getParameter("check-topic");
 		List<Category> listCategory = new CategoryDaoImpl().getAll();
 
