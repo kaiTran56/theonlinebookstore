@@ -42,6 +42,11 @@ public class ImageUpload extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		uploadImageBoardnew(request, response);
+	}
+
+	protected void uploadImageBoardnew(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		System.out.println("HEllow!");
 		/*
