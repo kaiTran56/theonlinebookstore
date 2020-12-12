@@ -23,10 +23,7 @@ public class EditCategoryController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int catalog_id = Integer.parseInt(request.getParameter("id"));
-		Category categoryTemp = new CategoryDaoImpl().get(catalog_id);
-		request.setAttribute("catelist", categoryTemp);
-		request.getRequestDispatcher("/view/admin/editcate.jsp").forward(request, response);
+		goEditCate(request, response);
 	}
 
 	/**
@@ -34,6 +31,19 @@ public class EditCategoryController extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doEditCategory(request, response);
+	}
+
+	protected void goEditCate(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int catalog_id = Integer.parseInt(request.getParameter("id"));
+		Category categoryTemp = new CategoryDaoImpl().get(catalog_id);
+		request.setAttribute("catelist", categoryTemp);
+		request.getRequestDispatcher("/view/admin/editcate.jsp").forward(request, response);
+	}
+
+	protected void doEditCategory(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int catalog_id = Integer.parseInt(request.getParameter("id"));
 		String name = request.getParameter("name");
