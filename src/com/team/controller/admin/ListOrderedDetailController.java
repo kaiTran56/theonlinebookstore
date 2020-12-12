@@ -32,10 +32,14 @@ public class ListOrderedDetailController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doListOrderedDetail(request, response);
+	}
+
+	protected void doListOrderedDetail(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		List<Ordered> listOrdered = new OrderedDaoImpl().getProduct(id);
 		request.setAttribute("orderedlist", listOrdered);
 		request.getRequestDispatcher("/view/admin/show-orderdetail.jsp").forward(request, response);
 	}
-
 }
