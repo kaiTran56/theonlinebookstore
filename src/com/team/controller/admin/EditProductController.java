@@ -35,12 +35,7 @@ public class EditProductController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<Category> listCate = new CategoryDaoImpl().getAll();
-		request.setAttribute("catelist", listCate);
-		int id = Integer.parseInt(request.getParameter("id"));
-		Product productTemp = new ProductDaoImpl().get(id);
-		request.setAttribute("product", productTemp);
-		request.getRequestDispatcher("/view/admin/editproduct.jsp").forward(request, response);
+		goEditProduct(request, response);
 	}
 
 	/**
@@ -49,7 +44,23 @@ public class EditProductController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doEditProduct(request, response);
+	}
 
+	protected void goEditProduct(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		List<Category> listCate = new CategoryDaoImpl().getAll();
+		request.setAttribute("catelist", listCate);
+		int id = Integer.parseInt(request.getParameter("id"));
+		Product productTemp = new ProductDaoImpl().get(id);
+		request.setAttribute("product", productTemp);
+		request.getRequestDispatcher("/view/admin/editproduct.jsp").forward(request, response);
+
+	}
+
+	protected void doEditProduct(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		int product_id = Integer.parseInt(request.getParameter("product-id"));
 
 		String name = request.getParameter("product-name");
