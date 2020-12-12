@@ -32,15 +32,15 @@ public class SortByNameController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doSortByName(request, response);
+	}
+
+	protected void doSortByName(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		List<Product> listProduct = new ProductDaoImpl().getAll();
 		listProduct.sort((p1, p2) -> p1.getName().compareTo(p2.getName()));
 		request.setAttribute("listproduct", listProduct);
 		request.getRequestDispatcher("/view/user/template/shop.jsp").forward(request, response);
-	}
-
-	protected void doContact(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
 	}
 
 }
