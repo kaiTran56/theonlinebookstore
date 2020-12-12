@@ -32,15 +32,15 @@ public class ContactController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doContact(request, response);
+	}
+
+	protected void doContact(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		List<Category> listCategory = new CategoryDaoImpl().getAll();
 
 		request.setAttribute("listcategory", listCategory);
 		request.getRequestDispatcher("/view/user/template/contact.jsp").forward(request, response);
-	}
-
-	protected void doContact(HttpServletRequest request, HttpServerResponse response)
-			throws ServletException, IOException {
-
 	}
 
 }
