@@ -27,4 +27,8 @@ public class RemoveProductController extends HttpServlet {
 		response.sendRedirect(request.getContextPath() + "/admin/list-product");
 	}
 
+	protected void doEditAdmin(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+	}
+
 }

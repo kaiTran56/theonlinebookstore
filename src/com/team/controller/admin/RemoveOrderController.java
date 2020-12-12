@@ -30,8 +30,14 @@ public class RemoveOrderController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doRemoveOrder(request, response);
+	}
+
+	protected void doRemoveOrder(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		new TransactionDaoImpl().delete(id);
-		response.sendRedirect(request.getContextPath()+ "/admin/list-order");
+		response.sendRedirect(request.getContextPath() + "/admin/list-order");
 	}
+
 }
