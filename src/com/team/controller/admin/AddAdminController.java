@@ -27,10 +27,20 @@ public class AddAdminController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		goAddAdmin(request, response);
+	}
+
+	protected void goAddAdmin(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.getRequestDispatcher("/view/admin/addadmin.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doAddAdmin(request, response);
+	}
+
+	protected void doAddAdmin(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		String username = request.getParameter("admin-username");
@@ -38,8 +48,8 @@ public class AddAdminController extends HttpServlet {
 
 		AdminDaoImpl adminDao = new AdminDaoImpl();
 		adminDao.insert(new Admin(username, password));
-		
-		response.sendRedirect(request.getContextPath()+"/admin/list-admin");
+
+		response.sendRedirect(request.getContextPath() + "/admin/list-admin");
 
 	}
 

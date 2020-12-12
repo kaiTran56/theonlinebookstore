@@ -25,6 +25,11 @@ public class AddBoardnewController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		goAddBoardnew(request, response);
+	}
+
+	protected void goAddBoardnew(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.getRequestDispatcher("/view/admin/addboardnew.jsp").forward(request, response);
 	}
 
@@ -33,6 +38,11 @@ public class AddBoardnewController extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doAddBoardnew(request, response);
+	}
+
+	protected void doAddBoardnew(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String title = request.getParameter("new-title");
@@ -43,11 +53,6 @@ public class AddBoardnewController extends HttpServlet {
 		Boardnew boardnew = new Boardnew(title, content, author, created);
 		session.setAttribute("boardnewTemp", boardnew);
 		response.sendRedirect(request.getContextPath() + "/view/admin/imageupload.jsp");
-	}
-
-	protected void setURL(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
 	}
 
 }
