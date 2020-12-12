@@ -32,6 +32,11 @@ public class SortByYearController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doSortByYear(request, response);
+	}
+
+	protected void doSortByYear(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		List<Product> listProduct = new ProductDaoImpl().getAll();
 		listProduct.sort((p1, p2) -> p2.getCreated().compareTo(p1.getCreated()));
 		request.setAttribute("listproduct", listProduct);

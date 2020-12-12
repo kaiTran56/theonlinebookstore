@@ -33,6 +33,11 @@ public class UpdateCartController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		goCheckOut(request, response);
+	}
+
+	protected void goCheckOut(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.getRequestDispatcher("/view/user/template/check-out.jsp").forward(request, response);
 	}
 
@@ -41,6 +46,11 @@ public class UpdateCartController extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doUpdateCart(request, response);
+	}
+
+	protected void doUpdateCart(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Order order = (Order) session.getAttribute("order");
