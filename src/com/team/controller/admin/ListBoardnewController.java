@@ -32,6 +32,12 @@ public class ListBoardnewController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doListBoardnew(request, response);
+
+	}
+
+	protected void doListBoardnew(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		List<Boardnew> listBoardnew = new BoardnewDaoImpl().getAll();
 		request.setAttribute("boardnewList", listBoardnew);

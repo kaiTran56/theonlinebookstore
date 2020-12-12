@@ -32,8 +32,13 @@ public class ListAdminController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doListAdim(request, response);
+	}
+
+	protected void doListAdim(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		List<Admin> listAdmin = new AdminDaoImpl().getAll();
-		System.out.println(listAdmin.toString()+"size:"+listAdmin.size());
+		System.out.println(listAdmin.toString() + "size:" + listAdmin.size());
 		request.setAttribute("adminList", listAdmin);
 		request.getRequestDispatcher("/view/admin/admin.jsp").forward(request, response);
 	}
