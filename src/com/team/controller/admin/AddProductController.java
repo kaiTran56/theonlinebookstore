@@ -35,9 +35,15 @@ public class AddProductController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		goAddProduct(request, response);
+	}
+
+	protected void goAddProduct(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		List<Category> listCate = new CategoryDaoImpl().getAll();
 		request.setAttribute("catelist", listCate);
 		request.getRequestDispatcher("/view/admin/addproduct.jsp").forward(request, response);
+
 	}
 
 	/**
@@ -45,6 +51,11 @@ public class AddProductController extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doAddProduct(request, response);
+	}
+
+	protected void doAddProduct(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		int product_id = Integer.parseInt(request.getParameter("product-id"));
@@ -58,7 +69,6 @@ public class AddProductController extends HttpServlet {
 		String description = request.getParameter("product-desc");
 		LocalDateTime created = LocalDateTime.now();
 		int quantity = Integer.parseInt(request.getParameter("product-quantity"));
-
 
 		Product product = new Product(catalog_id, name, author, price, status, description, discount, created,
 				quantity);
