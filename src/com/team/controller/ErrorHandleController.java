@@ -29,6 +29,11 @@ public class ErrorHandleController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doErrorHandle(request, response);
+	}
+
+	protected void doErrorHandle(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		List<Category> listCategory = new CategoryDaoImpl().getAll();
 
 		request.setAttribute("listcategory", listCategory);
