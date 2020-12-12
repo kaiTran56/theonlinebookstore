@@ -16,7 +16,7 @@
 
 							<div class="form-group">
 								<label for="input-1">ID</label> <input type="text"
-									class="form-control" id="input-2" name="product-id">
+									class="form-control" id="input-2" name="product-id" value="0">
 							</div>
 
 							<div class="form-group">
@@ -26,7 +26,7 @@
 							</div>
 							<div class="form-group">
 								<label for="input-1">Author</label> <input type="text"
-									class="form-control" id="input-1" placeholder="Price"
+									class="form-control" id="input-1" value="Anonymous"
 									name="product-author">
 							</div>
 
@@ -44,7 +44,7 @@
 
 							<div class="form-group">
 								<label for="input-1">Price</label> <input type="text"
-									class="form-control" id="input-1" placeholder="Price"
+									class="form-control" id="input-1" placeholder="Price" value="0"
 									name="product-price">
 							</div>
 							<div class="form-group">
@@ -61,7 +61,7 @@
 								<label for="input-2">Sale</label>
 								<div class="input-group">
 									<input type="text" class="form-control"
-										placeholder="Sale ... %" name="product-discount">
+										placeholder="Sale ... %" name="product-discount" value="0">
 									<div class="input-group-append">
 										<button class="btn btn-light" type="button">%</button>
 									</div>
@@ -69,7 +69,7 @@
 							</div>
 							<div class="form-group">
 								<label for="input-1">Quantity</label> <input type="text"
-									class="form-control" id="input-1" placeholder="Price"
+									class="form-control" id="input-1" value="0"
 									name="product-quantity">
 							</div>
 							<div class="form-group">

@@ -58,17 +58,17 @@ public class AddProductController extends HttpServlet {
 	protected void doAddProduct(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		int product_id = Integer.parseInt(request.getParameter("product-id"));
+		int product_id = Integer.parseInt(request.getParameter("product-id").trim());
 
 		String name = request.getParameter("product-name");
 		String author = request.getParameter("product-author");
 		int catalog_id = Integer.parseInt(request.getParameter("product-cate"));
-		double price = Double.parseDouble(request.getParameter("product-price"));
+		double price = Double.parseDouble(request.getParameter("product-price").trim());
 		String status = request.getParameter("product-status");
-		int discount = Integer.parseInt(request.getParameter("product-discount"));
+		int discount = Integer.parseInt(request.getParameter("product-discount").trim());
 		String description = request.getParameter("product-desc");
 		LocalDateTime created = LocalDateTime.now();
-		int quantity = Integer.parseInt(request.getParameter("product-quantity"));
+		int quantity = Integer.parseInt(request.getParameter("product-quantity").trim());
 
 		Product product = new Product(catalog_id, name, author, price, status, description, discount, created,
 				quantity);
