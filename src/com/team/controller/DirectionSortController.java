@@ -28,6 +28,11 @@ public class DirectionSortController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doOptionSort(request, response);
+	}
+
+	protected void doOptionSort(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String optionSort = request.getParameter("option-sort");
 		if (optionSort.equals("author-sort")) {
 			response.sendRedirect(request.getContextPath() + "/view/user/shop/sort-name");
