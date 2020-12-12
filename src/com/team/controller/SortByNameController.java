@@ -38,4 +38,9 @@ public class SortByNameController extends HttpServlet {
 		request.getRequestDispatcher("/view/user/template/shop.jsp").forward(request, response);
 	}
 
+	protected void doContact(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+	}
+
 }
