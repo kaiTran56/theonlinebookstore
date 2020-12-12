@@ -47,6 +47,11 @@ public class UpdateDeniedStatusController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doUpdateDeny(request, response);
+	}
+
+	protected void doUpdateDeny(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String status = "Denied!";
 		int transaction_id = Integer.parseInt(request.getParameter("id"));
 		new TransactionDaoImpl().changeStatus(new Transactions(transaction_id, status));
