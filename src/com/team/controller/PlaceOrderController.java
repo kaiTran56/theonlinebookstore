@@ -42,6 +42,11 @@ public class PlaceOrderController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doPlaceOrder(request, response);
+	}
+
+	protected void doPlaceOrder(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String message = request.getParameter("message");
 
 		HttpSession session = request.getSession();
@@ -76,7 +81,6 @@ public class PlaceOrderController extends HttpServlet {
 		System.out.println("Successfully!");
 
 		response.sendRedirect(request.getContextPath() + "/view/user/checkout");
-
 	}
 
 }
