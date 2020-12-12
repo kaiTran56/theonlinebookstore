@@ -15,22 +15,29 @@ import com.team.dao.impl.BoardnewDaoImpl;
 
 public class RemoveBoardnewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RemoveBoardnewController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public RemoveBoardnewController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doRemoveBoardnew(request, response);
+	}
+
+	protected void doRemoveBoardnew(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		int idTemp = Integer.parseInt(request.getParameter("boardnew-id"));
 		new BoardnewDaoImpl().delete(idTemp);
-		response.sendRedirect(request.getContextPath()+"/admin/list-boardnew");
+		response.sendRedirect(request.getContextPath() + "/admin/list-boardnew");
 	}
 
 }
