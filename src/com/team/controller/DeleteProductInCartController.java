@@ -36,6 +36,11 @@ public class DeleteProductInCartController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doDeleteProductInCart(request, response);
+	}
+
+	protected void doDeleteProductInCart(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 
 		String id = request.getParameter("id");
@@ -66,4 +71,5 @@ public class DeleteProductInCartController extends HttpServlet {
 			session.setAttribute("sumprice", order.getSumPrice());
 		}
 	}
+
 }
