@@ -38,9 +38,8 @@ public class ListProductController extends HttpServlet {
 	protected void doListProduct(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		List<Product> listProduct = new ProductDaoImpl().getAll();
-		System.out.println("Address: Hello" + listProduct.get(0).getUrlTemp());
-		request.setAttribute("productlist", listProduct);
 
+		request.setAttribute("productlist", listProduct);
 		request.getRequestDispatcher("/view/admin/show-product.jsp").forward(request, response);
 	}
 }

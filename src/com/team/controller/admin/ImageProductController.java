@@ -74,7 +74,7 @@ public class ImageProductController extends HttpServlet {
 					continue;
 				}
 
-				String fileUrl = "C:\\Users\\ASUS\\eclipse-workspacejee\\theonlinebook\\WebContent\\images";
+				String fileUrl = "C:\\Users\\Admin\\eclipse-workspace\\TheOnlineBook\\WebContent\\images";
 				File uploadDir = new File(fileUrl);
 				System.out.println("address: " + uploadDir.getAbsolutePath());
 				File file = File.createTempFile("img", ".png", uploadDir);

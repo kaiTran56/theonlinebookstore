@@ -114,7 +114,7 @@ public class Boardnew {
 	}
 
 	public String getUrlTemp() {
-		String url = "C:\\Users\\ASUS\\eclipse-workspacejee\\theonlinebook\\WebContent\\";
+		String url = "C:\\Users\\Admin\\eclipse-workspace\\TheOnlineBook\\WebContent\\";
 		int len = this.getImage_link().length();
 		System.out.println("Address: " + this.getImage_link() + " The length: " + len);
 		urlTemp = this.getImage_link().substring(url.length(), len).replace("\\", "//");
