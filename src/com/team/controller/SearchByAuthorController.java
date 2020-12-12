@@ -33,6 +33,11 @@ public class SearchByAuthorController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doSearchByAuthor(request, response);
+	}
+
+	protected void doSearchByAuthor(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String author = request.getParameter("check-author");
 		List<Product> listProduct = new ProductDaoImpl().getAll().stream().filter(p -> p.getAuthor().equals(author))
 				.collect(Collectors.toList());
