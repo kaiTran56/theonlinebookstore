@@ -38,4 +38,9 @@ public class ContactController extends HttpServlet {
 		request.getRequestDispatcher("/view/user/template/contact.jsp").forward(request, response);
 	}
 
+	protected void doContact(HttpServletRequest request, HttpServerResponse response)
+			throws ServletException, IOException {
+
+	}
+
 }
