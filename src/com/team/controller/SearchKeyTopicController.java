@@ -34,6 +34,11 @@ public class SearchKeyTopicController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doSearchKeyTopic(request, response);
+	}
+
+	protected void doSearchKeyTopic(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		List<Category> listCategory = new CategoryDaoImpl().getAll();
 
 		request.setAttribute("listcategory", listCategory);
