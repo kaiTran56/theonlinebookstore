@@ -96,7 +96,6 @@ public class AddCartController extends HttpServlet {
 
 					int sizeTemp = listItems.size();
 					session.setAttribute("length", sizeTemp);
-
 					session.setAttribute("order", order);
 					session.setAttribute("sumprice", order.getSumPrice());
 				}

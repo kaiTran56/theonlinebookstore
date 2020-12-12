@@ -168,7 +168,7 @@
 											class="primary-btn checkout-btn">CHECK OUT</a>
 									</div>
 								</div></li>
-							<li class="cart-price">$${order.sumPrice}</li>
+							
 						</ul>
 					</div>
 				</div>

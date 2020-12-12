@@ -99,8 +99,8 @@
 				<div class="row">
 					<div class="col-lg-2 col-md-2">
 						<div class="logo">
-							<a href="${pageContext.request.contextPath}/view/user/homepage"> <img src="${url}/img/logo.png"
-								alt="">
+							<a href="${pageContext.request.contextPath}/view/user/homepage">
+								<img src="${url}/img/logo.png" alt="">
 							</a>
 						</div>
 					</div>
@@ -119,13 +119,14 @@
 								</select> <input type="text" size="50" style="height: 50px;"
 									placeholder="What kinds of books do you need?"
 									name="search-key">
-								<button style="height: 50px; background-color: #ffc14d;width : 50px;">
-									<i class="ti-search" style="color: white; "></i>
+								<button
+									style="height: 50px; background-color: #ffc14d; width: 50px;">
+									<i class="ti-search" style="color: white;"></i>
 								</button>
 							</div>
 						</form>
 					</div>
-					
+
 					<div class="col-lg-3 text-right col-md-3">
 						<ul class="nav-right">
 							<li class="heart-icon"><a href="#"> <i
@@ -134,7 +135,7 @@
 
 							<li class="cart-icon"><a
 								href="${pageContext.request.contextPath}/view/user/shopping-cart">
-									<i class="icon_bag_alt"></i> 
+									<i class="icon_bag_alt"></i>
 							</a>
 								<div class="cart-hover">
 									<div class="select-items">
@@ -174,9 +175,6 @@
 											class="primary-btn checkout-btn">CHECK OUT</a>
 									</div>
 								</div></li>
-
-
-							
 						</ul>
 					</div>
 				</div>
@@ -201,12 +199,13 @@
 						<li><a href="${url}/index.jsp">Home</a></li>
 						<li><a
 							href="${pageContext.request.contextPath}/view/user/shop">Shop</a></li>
-						<li><a href="${pageContext.request.contextPath}/view/user/shop/best-sold">Best sellers</a>
-							</li>
+						<li><a
+							href="${pageContext.request.contextPath}/view/user/shop/best-sold">Best
+								sellers</a></li>
 						<li><a
 							href="${pageContext.request.contextPath}/view/user/contact">Contact</a></li>
 						<li><a
-							href="${pageContext.request.contextPath}/user/new/list">	Blog</a></li>
+							href="${pageContext.request.contextPath}/user/new/list"> Blog</a></li>
 						<li><a href="#">User</a>
 							<ul class="dropdown">
 								<li><a
@@ -217,7 +216,7 @@
 								<li><a
 									href="${pageContext.request.contextPath }/view/user/login">Login</a></li>
 							</ul></li>
-												</ul>
+					</ul>
 				</nav>
 				<div id="mobile-menu-wrap"></div>
 			</div>
