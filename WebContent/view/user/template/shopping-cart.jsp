@@ -176,7 +176,7 @@
 								</div></li>
 
 
-							<li class="cart-price">$${order.sumPrice}</li>
+							
 						</ul>
 					</div>
 				</div>
