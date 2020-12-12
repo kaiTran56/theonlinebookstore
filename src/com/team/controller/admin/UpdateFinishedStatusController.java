@@ -31,6 +31,11 @@ public class UpdateFinishedStatusController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doUpdateFinished(request, response);
+	}
+
+	protected void doUpdateFinished(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String status = "Finished";
 		int transaction_id = Integer.parseInt(request.getParameter("id"));
 		new TransactionDaoImpl().changeStatus(new Transactions(transaction_id, status));
