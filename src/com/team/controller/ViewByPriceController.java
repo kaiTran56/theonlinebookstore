@@ -33,6 +33,11 @@ public class ViewByPriceController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doViewByPrice(request, response);
+	}
+
+	protected void doViewByPrice(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		double priceStart = Double.parseDouble(request.getParameter("price-start"));
 		System.out.println("Check Price-Start: " + priceStart);
 		double priceEnd = Double.parseDouble(request.getParameter("price-end"));

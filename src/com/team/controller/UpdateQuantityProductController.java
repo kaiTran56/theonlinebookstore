@@ -31,6 +31,11 @@ public class UpdateQuantityProductController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doUpdateQuantity(request, response);
+	}
+
+	protected void doUpdateQuantity(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		System.out.println("Hello");
 		check_id = request.getParameter("check_id");
 		System.out.println("Check_id: " + check_id);
@@ -57,7 +62,6 @@ public class UpdateQuantityProductController extends HttpServlet {
 		System.out.println("Successfully to update quantity");
 
 		response.sendRedirect(request.getContextPath() + "/view/user/shop");
-
 	}
 
 }
