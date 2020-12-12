@@ -9,9 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.team.dao.impl.BoardnewDaoImpl;
-import com.team.dao.impl.CategoryDaoImpl;
 import com.team.model.Boardnew;
-import com.team.model.Category;
 
 /**
  * Servlet implementation class ListBoardnewController
