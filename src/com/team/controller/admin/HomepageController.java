@@ -28,6 +28,11 @@ public class HomepageController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		goHomepage(request, response);
+	}
+
+	protected void goHomepage(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.getRequestDispatcher("/view/admin/index.jsp").forward(request, response);
 	}
 

@@ -41,6 +41,11 @@ public class ImageProductController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		uploadImageProduct(request, response);
+	}
+
+	protected void uploadImageProduct(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String url;
 		HttpSession session = request.getSession();
 		System.out.println("HEllow!");
