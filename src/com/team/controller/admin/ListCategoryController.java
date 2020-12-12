@@ -32,6 +32,12 @@ public class ListCategoryController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doListBoardnew(request, response);
+
+	}
+
+	protected void doListBoardnew(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		List<Category> listCate = new CategoryDaoImpl().getAll();
 		request.setAttribute("catelist", listCate);
 		request.getRequestDispatcher("/view/admin/show-cate.jsp").forward(request, response);
