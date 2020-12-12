@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 public class LogoutAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -23,6 +24,11 @@ public class LogoutAdmin extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doLogout(request, response);
+	}
+
+	protected void doLogout(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.removeAttribute("admin-username");

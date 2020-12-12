@@ -32,14 +32,24 @@ public class LoginAdmin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("/view/admin/login.jsp").forward(request, response);
+		goLogin(request, response);
 	}
 
 	/*
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doLogin(request, response);
+	}
+
+	protected void goLogin(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.getRequestDispatcher("/view/admin/login.jsp").forward(request, response);
+	}
+
+	protected void doLogin(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String username = request.getParameter("admin-username");
 		String password = request.getParameter("admin-password");
@@ -53,8 +63,6 @@ public class LoginAdmin extends HttpServlet {
 			session.setAttribute("admin-username", admin.getUsername());
 			response.sendRedirect(request.getContextPath() + "/admin/homepage");
 		}
-
-
 	}
 
 }

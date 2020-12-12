@@ -32,6 +32,11 @@ public class ListProductController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doListProduct(request, response);
+	}
+
+	protected void doListProduct(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		List<Product> listProduct = new ProductDaoImpl().getAll();
 		System.out.println("Address: Hello" + listProduct.get(0).getUrlTemp());
 		request.setAttribute("productlist", listProduct);

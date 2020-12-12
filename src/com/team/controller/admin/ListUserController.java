@@ -35,6 +35,11 @@ public class ListUserController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doListUser(request, response);
+	}
+
+	protected void doListUser(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		List<User> listUser = this.userDao.getAll();
 		request.setAttribute("listUser", listUser);
 		request.getRequestDispatcher("/view/admin/user.jsp").forward(request, response);
