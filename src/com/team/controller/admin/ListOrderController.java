@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.team.dao.impl.CategoryDaoImpl;
 import com.team.dao.impl.TransactionDaoImpl;
-import com.team.model.Category;
 import com.team.model.Transactions;
 
 /**
