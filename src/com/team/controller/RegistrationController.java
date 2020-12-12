@@ -31,7 +31,11 @@ public class RegistrationController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doSignUp(request, response);
+	}
 
+	protected void doSignUp(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.getRequestDispatcher("/view/user/signup.jsp").forward(request, response);
 	}
 
@@ -40,6 +44,11 @@ public class RegistrationController extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doRegister(request, response);
+	}
+
+	protected void doRegister(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("HElloWorld");
 		String name = request.getParameter("fullName");
@@ -69,7 +78,6 @@ public class RegistrationController extends HttpServlet {
 			request.setAttribute("notSuccess", "Impossible to create new user!");
 			request.getRequestDispatcher("/view/user/signup.jsp").forward(request, response);
 		}
-
 	}
 
 }
