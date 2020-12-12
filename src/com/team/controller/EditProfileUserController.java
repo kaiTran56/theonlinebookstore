@@ -33,6 +33,11 @@ public class EditProfileUserController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doEditProfile(request, response);
+	}
+
+	protected void doEditProfile(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("username");
 		LocalDateTime createdTemp = (LocalDateTime) request.getAttribute("createdDay");
