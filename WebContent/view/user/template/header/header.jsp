@@ -102,8 +102,9 @@
 								</select> <input type="text" size="50" style="height: 50px;"
 									placeholder="What kinds of books do you need?"
 									name="search-key">
-								<button style="height: 50px; background-color: #ffc14d;width : 50px;">
-									<i class="ti-search" style="color: white; "></i>
+								<button
+									style="height: 50px; background-color: #ffc14d; width: 50px;">
+									<i class="ti-search" style="color: white;"></i>
 								</button>
 							</div>
 						</form>
@@ -116,49 +117,114 @@
 							</a></li>
 
 
-							<li class="cart-icon"><a
-								href="${pageContext.request.contextPath}/view/user/shopping-cart">
-									<i class="icon_bag_alt"></i> 
-							</a>
-								<div class="cart-hover">
-									<div class="select-items">
-										<table>
-											<tbody>
-												<c:forEach items="${order.items}" var="listitem">
-													<tr>
-														<td class="si-pic"><img
-															src="${pageContext.request.contextPath}/${listitem.product.urlTemp}"
-															alt=""
-															style="width: 110px; height: 67px; object-fit: cover; border: 1px solid #fff;"></td>
-														<td class="si-text">
-															<div class="product-selected">
-																<p>$${listitem.product.price}</p>
-																<h6>${listitem.product.name}</h6>
-															</div>
-														</td>
-
-													</tr>
-												</c:forEach>
 
 
-											</tbody>
-										</table>
-									</div>
-									<div class="select-total">
-										<span>total:</span>
-										<h5>$${order.sumPrice}</h5>
-									</div>
 
 
-									<div class="select-button">
-										<a
-											href="${pageContext.request.contextPath}/view/user/shopping-cart"
-											class="primary-btn view-card">VIEW CARD</a> <a
-											href="${pageContext.request.contextPath}/view/user/checkout"
-											class="primary-btn checkout-btn">CHECK OUT</a>
-									</div>
-								</div></li>
-							
+
+							<c:choose>
+								<c:when test="${sessionScope.username == null }">
+									<li class="cart-icon"><a
+										href="${pageContext.request.contextPath}/view/user/shopping-cart">
+											<i class="icon_bag_alt"></i> <span>+</span>
+									</a>
+										<div class="cart-hover">
+											<div class="select-items">
+												<table>
+													<tbody>
+														<c:forEach items="${order.items}" var="listitem">
+															<tr>
+																<td class="si-pic"><img
+																	src="${pageContext.request.contextPath}/${listitem.product.urlTemp}"
+																	alt=""
+																	style="width: 110px; height: 67px; object-fit: cover; border: 1px solid #fff;"></td>
+																<td class="si-text">
+																	<div class="product-selected">
+																		<p>$${listitem.product.price}</p>
+																		<h6>${listitem.product.name}</h6>
+																	</div>
+																</td>
+
+															</tr>
+														</c:forEach>
+
+
+													</tbody>
+												</table>
+											</div>
+											<div class="select-total">
+												<span>total:</span>
+												<h5>$${order.sumPrice}</h5>
+											</div>
+
+
+											<div class="select-button">
+												<a
+													href="${pageContext.request.contextPath}/view/user/shopping-cart"
+													class="primary-btn view-card">VIEW CARD</a> <a
+													href="${pageContext.request.contextPath}/view/user/checkout"
+													class="primary-btn checkout-btn">CHECK OUT</a>
+											</div>
+										</div></li>
+								</c:when>
+
+
+
+
+								<c:otherwise>
+									<li class="cart-icon"><a
+										href="${pageContext.request.contextPath}/view/user/shopping-cart">
+											<i class="icon_bag_alt"></i> <span>+</span>
+									</a>
+										<div class="cart-hover">
+											<div class="select-items">
+												<table>
+													<tbody>
+														<c:forEach items="${order.items}" var="listitem">
+															<tr>
+																<td class="si-pic"><img
+																	src="${pageContext.request.contextPath}/${listitem.product.urlTemp}"
+																	alt=""
+																	style="width: 110px; height: 67px; object-fit: cover; border: 1px solid #fff;"></td>
+																<td class="si-text">
+																	<div class="product-selected">
+																		<p>$${listitem.product.price}</p>
+																		<h6>${listitem.product.name}</h6>
+																	</div>
+																</td>
+
+															</tr>
+														</c:forEach>
+
+
+													</tbody>
+												</table>
+											</div>
+											<div class="select-total">
+												<span>total:</span>
+												<h5>$${order.sumPrice}</h5>
+											</div>
+
+
+											<div class="select-button">
+												<a
+													href="${pageContext.request.contextPath}/view/user/shopping-cart"
+													class="primary-btn view-card">VIEW CARD</a> <a
+													href="${pageContext.request.contextPath}/view/user/checkout"
+													class="primary-btn checkout-btn">CHECK OUT</a>
+											</div>
+										</div></li>
+								</c:otherwise>
+
+
+
+
+
+							</c:choose>
+
+
+
+
 						</ul>
 					</div>
 				</div>

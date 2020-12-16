@@ -35,7 +35,6 @@ public class ErrorHandleController extends HttpServlet {
 	protected void doErrorHandle(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		List<Category> listCategory = new CategoryDaoImpl().getAll();
-
 		request.setAttribute("listcategory", listCategory);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/template/error.jsp");
 		dispatcher.forward(request, response);

@@ -75,11 +75,10 @@ public class PlaceOrderController extends HttpServlet {
 			new OrderedDaoImpl().insert(orderTemp);
 		});
 
-		System.out.println("Max: " + maxTrans_id);
-
+		session.removeAttribute("sumprice");
+		session.invalidate();
 		session.removeAttribute("order");
-		System.out.println("Successfully!");
-
+		session.invalidate();
 		response.sendRedirect(request.getContextPath() + "/view/user/checkout");
 	}
 

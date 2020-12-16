@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +17,7 @@ import com.team.model.Product;
 /**
  * Servlet implementation class DeleteProductIntCartController
  */
-@WebServlet("/DeleteProductIntCartController")
+
 public class DeleteProductInCartController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -55,7 +54,6 @@ public class DeleteProductInCartController extends HttpServlet {
 
 		listItems.remove(itemTemp);
 
-		System.out.println("Successfully to delete product from cart!" + " Price: " + order.getSumPrice());
 
 		int sizeTemp = listItems.size();
 		session.setAttribute("length", sizeTemp);

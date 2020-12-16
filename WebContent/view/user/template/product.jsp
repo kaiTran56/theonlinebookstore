@@ -94,8 +94,8 @@
 				<div class="row">
 					<div class="col-lg-2 col-md-2">
 						<div class="logo">
-							<a href="${pageContext.request.contextPath}/view/user/homepage"> <img src="${url}/img/logo.png"
-								alt="">
+							<a href="${pageContext.request.contextPath}/view/user/homepage">
+								<img src="${url}/img/logo.png" alt="">
 							</a>
 						</div>
 					</div>
@@ -114,8 +114,9 @@
 								</select> <input type="text" size="50" style="height: 50px;"
 									placeholder="What kinds of books do you need?"
 									name="search-key">
-								<button style="height: 50px; background-color: #ffc14d;width : 50px;">
-									<i class="ti-search" style="color: white; "></i>
+								<button
+									style="height: 50px; background-color: #ffc14d; width: 50px;">
+									<i class="ti-search" style="color: white;"></i>
 								</button>
 							</div>
 						</form>
@@ -124,13 +125,14 @@
 					<div class="col-lg-3 text-right col-md-3">
 						<ul class="nav-right">
 							<li class="heart-icon"><a href="#"> <i
-									class="icon_heart_alt"></i> <span>1</span>
+									class="icon_heart_alt"></i> <span>0</span>
 							</a></li>
+
 
 
 							<li class="cart-icon"><a
 								href="${pageContext.request.contextPath}/view/user/shopping-cart">
-									<i class="icon_bag_alt"></i> 
+									<i class="icon_bag_alt"></i> <span>+</span>
 							</a>
 								<div class="cart-hover">
 									<div class="select-items">
@@ -170,7 +172,7 @@
 											class="primary-btn checkout-btn">CHECK OUT</a>
 									</div>
 								</div></li>
-							
+
 						</ul>
 					</div>
 				</div>
@@ -195,7 +197,9 @@
 							href="${pageContext.request.contextPath}/view/user/homepage">Home</a></li>
 						<li><a
 							href="${pageContext.request.contextPath}/view/user/shop">Shop</a></li>
-						<li><a href="${pageContext.request.contextPath}/view/user/shop/best-sold">Best sellers</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/view/user/shop/best-sold">Best
+								sellers</a></li>
 						<li><a
 							href="${pageContext.request.contextPath}/view/user/contact">Contact</a></li>
 						<li><a
@@ -340,17 +344,29 @@
 											<input type="text" value="1" name="purchase-quantity">
 
 										</div>
-										<button class="primary-btn pd-cart" style="size: 10">Add
-											To Cart</button>
+
+										<c:choose>
+											<c:when test="${ sessionScope.checkSessionExisted !=null}">
+												<a class="primary-btn pd-cart" style="size: 10"
+													href="${pageContext.request.contextPath}/view/user/add-cart?id=${productdetail.product_id}"><i
+													class="icon_bag_alt"></i></a>
+
+											</c:when>
+											<c:otherwise>
+												<button class="primary-btn pd-cart" style="size: 10">Add
+													To Cart</button>
+											</c:otherwise>
+
+										</c:choose>
+
+
 										<%-- <a
 											href="${pageContext.request.contextPath}/view/user/add-cart?id=${productdetail.product_id}"
 											class="primary-btn pd-cart">Add To Cart</a> --%>
 
 
 									</div>
-									<li><a
-										href="${pageContext.request.contextPath}/view/user/add-cart?id=${productdetail.product_id}"><i
-											class="icon_bag_alt"></i></a></li>
+
 
 
 

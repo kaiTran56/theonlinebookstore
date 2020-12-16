@@ -32,6 +32,7 @@ public class CategoryDaoImpl extends JDBCConnection implements CategoryDao<Categ
 
 			}
 			statement.close();
+			result.close();
 			connect.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -55,6 +56,7 @@ public class CategoryDaoImpl extends JDBCConnection implements CategoryDao<Categ
 			}
 			System.out.println("Get successfull!");
 			statement.close();
+			result.close();
 			connect.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

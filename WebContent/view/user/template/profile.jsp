@@ -204,7 +204,7 @@ tr:nth-child(even) {
 
 							<li class="cart-icon"><a
 								href="${pageContext.request.contextPath}/view/user/shopping-cart">
-									<i class="icon_bag_alt"></i> 
+									<i class="icon_bag_alt"></i> <span>+</span>
 							</a>
 								<div class="cart-hover">
 									<div class="select-items">

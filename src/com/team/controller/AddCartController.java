@@ -22,7 +22,6 @@ public class AddCartController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Product product;
 	private ProductDaoImpl productDao = new ProductDaoImpl();
-	
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -56,6 +55,7 @@ public class AddCartController extends HttpServlet {
 					Order order = new Order();
 					List<Item> listItems = new ArrayList<Item>();
 					Item item = new Item();
+
 					item.setAmount(quantity);
 					item.setId(product.getProduct_id() + "");
 					item.setProduct(product);
@@ -68,7 +68,7 @@ public class AddCartController extends HttpServlet {
 					order.setItems(listItems);
 					n = listItems.size();
 
-					session.setAttribute("length-order", n);
+					session.setAttribute("length", n);
 					session.setAttribute("order", order);
 					session.setAttribute("sumprice", order.getSumPrice());
 				} else {
@@ -93,9 +93,7 @@ public class AddCartController extends HttpServlet {
 								- (item.getProduct().getPrice() * item.getProduct().getDiscount() / 100)));
 						listItems.add(item);
 					}
-
-					int sizeTemp = listItems.size();
-					session.setAttribute("length", sizeTemp);
+					
 					session.setAttribute("order", order);
 					session.setAttribute("sumprice", order.getSumPrice());
 				}

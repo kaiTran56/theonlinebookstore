@@ -38,24 +38,32 @@ public class UpdateQuantityProductController extends HttpServlet {
 			throws ServletException, IOException {
 		System.out.println("Hello");
 		check_id = request.getParameter("check_id");
-		System.out.println("Check_id: " + check_id);
 		int product_id = Integer.parseInt(check_id);
-		int checkQuantity = Integer.parseInt(request.getParameter("purchase-quantity"));
-
 		HttpSession session = request.getSession();
 		Order order = (Order) session.getAttribute("order");
 		List<Item> listItems = order.getItems();
+
+		for (Item item : listItems) {
+			if (item.getProduct().getProduct_id() == product_id) {
+				System.out.println("Product is exited!");
+			} else {
+				System.out.println("Nothing!");
+			}
+		}
+
+		System.out.println("Check_id: " + check_id);
+
+		int checkQuantity = Integer.parseInt(request.getParameter("purchase-quantity"));
+
 		order.setSumPrice(0);
 		listItems.stream().filter(p -> p.getProduct().getProduct_id() == product_id).forEach(p -> {
 			p.setAmount(checkQuantity);
 
 			p.setPrice(p.getProduct().getPrice() * checkQuantity);
 
-			System.out.println("Check Quantity and Price: " + p.getAmount() + " : " + p.getPrice());
-
 			order.setSumPrice(order.getSumPrice() + p.getPrice());
 		});
-		System.out.println("Quantity: " + checkQuantity);
+
 		order.setItems(listItems);
 		session.setAttribute("order", order);
 		session.setAttribute("sumprice", order.getSumPrice());

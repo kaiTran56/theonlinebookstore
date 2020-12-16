@@ -12,7 +12,6 @@ public class JDBCConnection {
 	public Connection getConnectionJDBC() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			System.out.println("Access to DB successfully!");
 			return DriverManager.getConnection(URL, USER, PASSWORD);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

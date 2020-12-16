@@ -8,10 +8,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.team.dao.impl.CategoryDaoImpl;
 import com.team.dao.impl.ProductDaoImpl;
 import com.team.model.Category;
+import com.team.model.Item;
+import com.team.model.Order;
 import com.team.model.Product;
 
 /**
@@ -41,6 +44,7 @@ public class ProductDetailController extends HttpServlet {
 
 	protected void showProductDetail(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		List<Category> listCategory = new CategoryDaoImpl().getAll();
 
 		request.setAttribute("listcategory", listCategory);
@@ -53,6 +57,24 @@ public class ProductDetailController extends HttpServlet {
 
 		Product product = new ProductDaoImpl().get(Integer.parseInt(check_id));
 		request.setAttribute("productdetail", product);
+
+		int product_id = Integer.parseInt(check_id);
+		HttpSession session = request.getSession();
+		Order order = (Order) session.getAttribute("order");
+
+		if (order == null) {
+			
+		} else {
+			List<Item> listItems = order.getItems();
+			for (Item item : listItems) {
+				if (item.getProduct().getProduct_id() == product_id) {
+					System.out.println("Product is exited!");
+				} else {
+					session.setAttribute("checkSessionExisted", "existed");
+				}
+			}
+
+		}
 
 		/*
 		 * show the related book
