@@ -360,11 +360,6 @@
 										</c:choose>
 
 
-										<%-- <a
-											href="${pageContext.request.contextPath}/view/user/add-cart?id=${productdetail.product_id}"
-											class="primary-btn pd-cart">Add To Cart</a> --%>
-
-
 									</div>
 
 
