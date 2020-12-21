@@ -281,10 +281,10 @@
 							<h4>Your Order</h4>
 							<div class="order-total">
 								<ul class="order-table">
-									<li>Product <span>Total</span></li>
+									<li>Product <span>Quantity</span></li>
 									<c:forEach items="${order.items}" var="list">
 
-										<li class="fw-normal">${list.product.name}<span>$${list.product.price}</span></li>
+										<li class="fw-normal">${list.product.name}<span>${list.amount}</span></li>
 
 									</c:forEach>
 

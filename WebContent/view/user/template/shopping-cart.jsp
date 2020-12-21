@@ -258,7 +258,7 @@
 										<th class="p-name">Product Name</th>
 										<th>Price</th>
 										<th>Quantity</th>
-										<th>Sum</th>
+
 										<th>Function</th>
 									</tr>
 								</thead>
@@ -281,9 +281,7 @@
 													</div>
 												</div>
 											</td>
-											<td class="cart-title first-row">
-												<h5>${listitem.price}</h5>
-											</td>
+
 
 
 											<td>
