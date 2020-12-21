@@ -346,18 +346,20 @@
 										</div>
 
 										<c:choose>
-											<c:when test="${ sessionScope.checkSessionExisted !=null}">
+											<c:when test="${ requestScope.checkSessionExisted =='existed'}">
+
+												<button class="primary-btn pd-cart" style="size: 10">Add
+													To Cart</button>
+											</c:when>
+
+											<c:otherwise>
 												<a class="primary-btn pd-cart" style="size: 10"
 													href="${pageContext.request.contextPath}/view/user/add-cart?id=${productdetail.product_id}"><i
 													class="icon_bag_alt"></i></a>
-
-											</c:when>
-											<c:otherwise>
-												<button class="primary-btn pd-cart" style="size: 10">Add
-													To Cart</button>
 											</c:otherwise>
 
 										</c:choose>
+
 
 
 									</div>

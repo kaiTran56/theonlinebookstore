@@ -69,7 +69,9 @@ public class ProductDetailController extends HttpServlet {
 			for (Item item : listItems) {
 				if (item.getProduct().getProduct_id() == product_id) {
 					System.out.println("Product is exited!");
-					session.setAttribute("checkSessionExisted", "existed");
+					request.setAttribute("checkSessionExisted", "existed");
+				} else {
+					System.out.println("Product is not existed!");
 				}
 			}
 
