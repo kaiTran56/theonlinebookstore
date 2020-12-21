@@ -63,15 +63,13 @@ public class ProductDetailController extends HttpServlet {
 		Order order = (Order) session.getAttribute("order");
 
 		if (order == null) {
-			
+
 		} else {
 			List<Item> listItems = order.getItems();
 			for (Item item : listItems) {
 				if (item.getProduct().getProduct_id() == product_id) {
 					System.out.println("Product is exited!");
 					session.setAttribute("checkSessionExisted", "existed");
-				} else {
-					
 				}
 			}
 
